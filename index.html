@@ -298,16 +298,48 @@ footer .logo{font-size:16px}
   <div class="section-label">Stay in the loop</div>
   <h2>The drop is <em>close</em></h2>
   <p style="margin:14px 0 26px">Pop your email in and you'll be the first to know when we launch.</p>
-  <form action="KIT_FORM_URL_GOES_HERE" method="post" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:480px;margin:0 auto 36px">
+  <form id="notify-form" action="https://app.kit.com/forms/9559699/subscriptions" method="post"
+    style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:480px;margin:0 auto 18px">
     <input type="email" name="email_address" required placeholder="you@email.com" aria-label="Email address"
       style="flex:1;min-width:220px;padding:14px 20px;border-radius:999px;border:1.5px solid var(--border);background:#fff;font-family:'Outfit',sans-serif;font-size:15px;color:var(--text);outline-color:var(--pink-deep)">
     <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer">Notify me</button>
   </form>
+  <p id="notify-msg" role="status" style="min-height:22px;margin:0 auto 30px;font-weight:600;color:var(--pink-deep)"></p>
   <div style="display:flex;gap:28px;justify-content:center;flex-wrap:wrap">
     <a class="handle" href="https://instagram.com/shopchaoticvibe" target="_blank" rel="noopener">Instagram · @shopchaoticvibe</a>
     <a class="handle" href="https://www.tiktok.com/@shopchaoticvibe" target="_blank" rel="noopener">TikTok · @shopchaoticvibe</a>
   </div>
 </section>
+
+<script>
+(function(){
+  var form = document.getElementById('notify-form');
+  var msg = document.getElementById('notify-msg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button');
+    var original = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r){ return r.json(); })
+      .then(function(){
+        form.reset();
+        msg.textContent = "You're on the list! Check your inbox to confirm.";
+      })
+      .catch(function(){
+        msg.textContent = 'Something went wrong, please try again.';
+      })
+      .finally(function(){
+        btn.textContent = original;
+        btn.disabled = false;
+      });
+  });
+})();
+</script>
 
 <footer>
   <span class="logo">Chaotic Vibe</span>
