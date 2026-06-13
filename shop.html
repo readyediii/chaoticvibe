@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop · Chaotic Vibe</title>
+<meta name="description" content="Shop Chaotic Vibe. Acrylic photo magnets, DIY magnet kits, sealed TCG and more. Browse here, check out securely on Etsy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Outfit:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF9FC;
+  --pink-deep:#D63384;
+  --pink-soft:#E59BC4;
+  --pink-pastel:#F9A8D4;
+  --pink-tint:#FDF2F8;
+  --pink-panel:#FBE4F0;
+  --border:#E8C8DB;
+  --text:#3A3A3A;
+  --text-soft:#9A8290;
+  --green:#1B8A5A;
+  --amber:#B58900;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  line-height:1.6;
+}
+::selection{background:var(--pink-pastel);color:var(--text)}
+
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px clamp(20px,5vw,64px);
+  border-bottom:1px dashed var(--border);
+  position:sticky;top:0;background:var(--bg);z-index:50;
+}
+.logo{font-family:'Shrikhand',cursive;font-size:22px;color:var(--pink-deep);text-decoration:none;letter-spacing:.5px}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);text-decoration:none}
+.nav a:hover,.nav a.active{color:var(--pink-deep)}
+@media(max-width:520px){.nav a.hide-sm{display:none}}
+
+.shop-hero{text-align:center;padding:clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(30px,4vw,48px)}
+.shop-hero .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--pink-deep);background:var(--pink-panel);border:1px solid var(--border);border-radius:999px;padding:7px 18px;display:inline-block;margin-bottom:22px}
+.shop-hero h1{font-family:'Shrikhand',cursive;font-weight:400;font-size:clamp(38px,7vw,68px);color:var(--text)}
+.shop-hero h1 em{font-style:normal;color:var(--pink-deep)}
+.shop-hero p{max-width:520px;margin:18px auto 0;color:var(--text-soft);font-size:clamp(15px,2vw,17px)}
+
+/* note banner */
+.checkout-note{
+  max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,64px);
+}
+.checkout-note .inner{
+  background:var(--pink-tint);border:1.5px solid var(--border);border-radius:14px;
+  padding:14px 20px;text-align:center;font-size:14px;color:var(--text);
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+}
+.checkout-note strong{color:var(--pink-deep)}
+
+/* filter chips */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:30px clamp(20px,5vw,64px) 6px}
+.chip{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  border:1.5px solid var(--border);background:#fff;color:var(--text-soft);
+  border-radius:999px;padding:8px 16px;cursor:pointer;transition:all .15s ease;
+}
+.chip:hover{border-color:var(--pink-pastel);color:var(--pink-deep)}
+.chip.active{background:var(--pink-deep);border-color:var(--pink-deep);color:#fff}
+
+/* product grid */
+.grid{
+  display:grid;gap:22px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  max-width:1080px;margin:0 auto;
+  padding:30px clamp(20px,5vw,64px) 60px;
+}
+.product{
+  background:#fff;border:1.5px solid var(--border);border-radius:20px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.product:hover{transform:translateY(-4px);border-color:var(--pink-pastel);box-shadow:0 14px 30px rgba(214,51,132,.12)}
+.product .media{position:relative;aspect-ratio:1/1;background:var(--pink-tint);overflow:hidden}
+.product .media img,.product .media video{width:100%;height:100%;object-fit:cover;display:block}
+.product .tag{
+  position:absolute;top:12px;left:12px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  background:rgba(255,255,255,.92);color:var(--pink-deep);border-radius:999px;padding:5px 12px;
+}
+.product .badge{
+  position:absolute;top:12px;right:12px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  background:var(--pink-deep);color:#fff;border-radius:999px;padding:5px 12px;
+}
+.product .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.product h3{font-size:18.5px;font-weight:700;line-height:1.25;margin-bottom:6px}
+.product .sub{font-size:14px;color:var(--text-soft);margin-bottom:14px;flex:1}
+.product .price{font-family:'Space Mono',monospace;font-weight:700;font-size:16px;color:var(--text);margin-bottom:16px}
+.product .price .from{font-weight:400;font-size:12px;color:var(--text-soft);text-transform:uppercase;letter-spacing:1px}
+.btn{
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:15px;text-decoration:none;
+  border-radius:999px;padding:13px 24px;display:inline-block;text-align:center;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--pink-deep);color:#fff;box-shadow:0 5px 0 var(--pink-soft)}
+.btn-primary:hover{box-shadow:0 7px 0 var(--pink-soft)}
+
+/* coming soon placeholder cards */
+.product.soon{border-style:dashed;background:var(--pink-tint)}
+.product.soon .media{display:flex;align-items:center;justify-content:center;font-size:46px}
+.product.soon .btn{background:#fff;color:var(--text-soft);box-shadow:none;border:1.5px solid var(--border);cursor:default}
+.product.soon .btn:hover{transform:none}
+
+footer{
+  border-top:1px dashed var(--border);
+  padding:28px clamp(20px,5vw,64px);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  font-size:13px;color:var(--text-soft);
+}
+footer .logo{font-size:16px}
+footer a{color:var(--pink-deep);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">Chaotic Vibe</a>
+  <nav class="nav">
+    <a href="index.html" class="hide-sm">Home</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="https://instagram.com/shopchaoticvibe" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@shopchaoticvibe" target="_blank" rel="noopener" class="hide-sm">TikTok</a>
+  </nav>
+</header>
+
+<div class="shop-hero">
+  <span class="eyebrow">The shop</span>
+  <h1>Small things, <em>big vibe</em></h1>
+  <p>Browse the chaos here. When you find your thing, checkout happens safely over on Etsy.</p>
+</div>
+
+<div class="checkout-note">
+  <div class="inner">
+    <span>🛒</span>
+    <span>Browse here, <strong>buy on Etsy</strong>. Every order is covered by Etsy Purchase Protection.</span>
+  </div>
+</div>
+
+<div class="filters">
+  <button class="chip active" data-filter="all">Everything</button>
+  <button class="chip" data-filter="makers">For Makers</button>
+  <button class="chip" data-filter="magnets">Card Magnets</button>
+  <button class="chip" data-filter="tcg">Sealed TCG</button>
+  <button class="chip" data-filter="merch">Tees &amp; Merch</button>
+</div>
+
+<div class="grid" id="grid">
+
+  <!-- PRODUCT 1: DIY blank magnet kit (live) -->
+  <article class="product" data-cat="makers">
+    <div class="media">
+      <video
+        src="https://v.etsystatic.com/video/upload/ac_none,du_15,q_auto:good/u5mrshfojys6qihjpija.mp4"
+        poster="https://i.etsystatic.com/25983742/r/il/0bdd50/8173413685/il_794xN.8173413685_n6hg.jpg"
+        autoplay muted loop playsinline></video>
+      <span class="tag">For Makers</span>
+      <span class="badge">New</span>
+    </div>
+    <div class="body">
+      <h3>DIY Build-Your-Own Magnet Kit</h3>
+      <p class="sub">Peel, stick, done. Turn bulk cards into fridge magnets with crystal-clear acrylic blanks. No glue, no tools. Packs of 3, 5 or 10.</p>
+      <div class="price"><span class="from">From</span> £6.60</div>
+      <a class="btn btn-primary" href="https://www.etsy.com/uk/listing/4520383978/diy-craft-kit-tcg-card-art-t-acrylic" target="_blank" rel="noopener">View on Etsy</a>
+    </div>
+  </article>
+
+  <!-- COMING SOON placeholders -->
+  <article class="product soon" data-cat="magnets">
+    <div class="media">🧲</div>
+    <div class="body">
+      <h3>Card Art Photo Magnets</h3>
+      <p class="sub">Finished acrylic magnets made from collectible card artwork. Ready to display, no crafting required.</p>
+      <div class="price"><span class="from">Coming</span> soon</div>
+      <span class="btn">Dropping soon</span>
+    </div>
+  </article>
+
+  <article class="product soon" data-cat="tcg">
+    <div class="media">🃏</div>
+    <div class="body">
+      <h3>Sealed TCG Products</h3>
+      <p class="sub">Sealed boosters, boxes and accessories for Pokémon, One Piece and Magic: The Gathering.</p>
+      <div class="price"><span class="from">Coming</span> soon</div>
+      <span class="btn">Dropping soon</span>
+    </div>
+  </article>
+
+  <article class="product soon" data-cat="merch">
+    <div class="media">👕</div>
+    <div class="body">
+      <h3>Tees, Mugs &amp; Desk Gear</h3>
+      <p class="sub">Everyday pieces with bold pop culture prints. Printed to order, designed in the UK.</p>
+      <div class="price"><span class="from">Coming</span> soon</div>
+      <span class="btn">Dropping soon</span>
+    </div>
+  </article>
+
+</div>
+
+<footer>
+  <span class="logo">Chaotic Vibe</span>
+  <span>© 2026 Chaotic Vibe · <a href="index.html">chaoticvibe.co.uk</a> · Made in the UK</span>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var items = document.querySelectorAll('#grid .product');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.getAttribute('data-filter');
+      items.forEach(function(item){
+        var show = (f === 'all') || (item.getAttribute('data-cat') === f);
+        item.style.display = show ? 'flex' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
