@@ -188,6 +188,13 @@ h2 em{font-style:normal;color:var(--pink-deep)}
   border-radius:999px;padding:4px 12px;
 }
 .card .soon.later{color:var(--amber);background:#FBF3DC}
+.card-link{display:block;text-decoration:none;color:inherit;padding:0;overflow:hidden}
+.card-link .card-img{margin:-0px 0 16px;border-radius:16px 16px 0 0;overflow:hidden;aspect-ratio:4/3;background:var(--pink-tint)}
+.card-link .card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-link h3,.card-link p{padding:0 26px}
+.card-link h3{margin-top:4px}
+.card-link .soon{margin:14px 26px 28px}
+.card-link:hover .soon{background:var(--pink-deep);color:#fff}
 
 /* ───────── crafters panel ───────── */
 .crafters{
@@ -240,9 +247,7 @@ footer .logo{font-size:16px}
   <h1>Chaotic<br><span class="tilt">Vibe</span></h1>
   <p>Collectible acrylic photo magnets made from the card art you love, plus sealed TCG products, tees, mugs and desk gear with serious main-character energy.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="https://www.tiktok.com/@shopchaoticvibe" target="_blank" rel="noopener">TikTok</a>
-    <a class="btn btn-primary" href="https://instagram.com/shopchaoticvibe" target="_blank" rel="noopener">Instagram</a>
-    <a class="btn btn-ghost" href="shop.html">Shop now</a>
+    <a class="btn btn-primary" href="shop.html">Shop now</a>
   </div>
 </div>
 
@@ -258,12 +263,12 @@ footer .logo{font-size:16px}
     <h2>Small things, <em>big vibe</em></h2>
   </div>
   <div class="grid">
-    <div class="card">
-      <div class="emoji">🧲</div>
+    <a class="card card-link" href="shop.html">
+      <div class="card-img"><img src="https://i.etsystatic.com/25983742/r/il/0bdd50/8173413685/il_794xN.8173413685_n6hg.jpg" alt="Acrylic card art magnets" loading="lazy"></div>
       <h3>Acrylic photo magnets</h3>
       <p>Crystal-clear 5×3cm acrylic magnets featuring collectible card artwork. Made for fridges, magnet boards and display shelves.</p>
-      <span class="soon">First drop</span>
-    </div>
+      <span class="soon">Shop now</span>
+    </a>
     <div class="card">
       <div class="emoji">🃏</div>
       <h3>Sealed TCG products</h3>
@@ -305,9 +310,9 @@ footer .logo{font-size:16px}
     <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer">Notify me</button>
   </form>
   <p id="notify-msg" role="status" style="min-height:22px;margin:0 auto 30px;font-weight:600;color:var(--pink-deep)"></p>
-  <div style="display:flex;gap:28px;justify-content:center;flex-wrap:wrap">
-    <a class="handle" href="https://instagram.com/shopchaoticvibe" target="_blank" rel="noopener">Instagram · @shopchaoticvibe</a>
-    <a class="handle" href="https://www.tiktok.com/@shopchaoticvibe" target="_blank" rel="noopener">TikTok · @shopchaoticvibe</a>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-primary" href="https://instagram.com/shopchaoticvibe" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn btn-primary" href="https://www.tiktok.com/@shopchaoticvibe" target="_blank" rel="noopener">TikTok</a>
   </div>
 </section>
 
